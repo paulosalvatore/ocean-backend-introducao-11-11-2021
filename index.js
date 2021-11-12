@@ -37,7 +37,11 @@ app.get("/herois/:id", function (req, res) {
 
 // [POST] "/herois" - Create
 app.post("/herois", function (req, res) {
-    res.send(req.body);
+    const item = req.body;
+
+    herois.push(item.nome);
+
+    res.send("Registro criado com sucesso!");
 });
 
 app.listen(3000);

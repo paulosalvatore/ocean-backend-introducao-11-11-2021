@@ -41,7 +41,18 @@ app.post("/herois", function (req, res) {
 
     herois.push(item.nome);
 
-    res.send("Registro criado com sucesso!");
+    res.send("Registro criado com sucesso: " + item.nome);
+});
+
+// [PUT] "/herois/:id" - Update
+app.put("/herois/:id", function (req, res) {
+    const id = +req.params.id - 1;
+
+    const item = req.body;
+
+    herois[id] = item.nome;
+
+    res.send("Registro atualizado com sucesso: " + item.nome);
 });
 
 app.listen(3000);

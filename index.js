@@ -18,7 +18,7 @@ const herois = ["Mulher Maravilha", "Capitã Marvel", "Homem de Ferro"];
 
 // [GET] "/herois" - Read All (Ler tudo)
 app.get("/herois", function (req, res) {
-    res.send(herois);
+    res.send(herois.filter(Boolean));
 });
 
 // [GET] "/herois/:id" - Read Single By Id (Ler individualmente - pelo Id)

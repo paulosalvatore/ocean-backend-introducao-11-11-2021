@@ -44,7 +44,7 @@ app.post("/herois", function (req, res) {
     res.send("Registro criado com sucesso: " + item.nome);
 });
 
-// [PUT] "/herois/:id" - Update
+// [PUT] "/herois/:id" - Update (Atualizar)
 app.put("/herois/:id", function (req, res) {
     const id = +req.params.id - 1;
 
@@ -53,6 +53,15 @@ app.put("/herois/:id", function (req, res) {
     herois[id] = item.nome;
 
     res.send("Registro atualizado com sucesso: " + item.nome);
+});
+
+// [DELETE] "/herois/:id" - Delete (Remover)
+app.delete("/herois/:id", function (req, res) {
+    const id = +req.params.id - 1;
+
+    delete herois[id];
+
+    res.send("Registro removido com sucesso.");
 });
 
 app.listen(3000);

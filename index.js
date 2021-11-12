@@ -1,6 +1,10 @@
 const express = require("express");
 const app = express();
 
+// Informando para o Express considerar o corpo da requisição
+// em formato JSON
+app.use(express.json());
+
 app.get("/", function (req, res) {
     res.send("Hello, World!");
 });
@@ -29,6 +33,11 @@ app.get("/herois/:id", function (req, res) {
 
     // Lógica de envio desse dado encontrado
     res.send(item);
+});
+
+// [POST] "/herois" - Create
+app.post("/herois", function (req, res) {
+    res.send(req.body);
 });
 
 app.listen(3000);
